@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  build: {
+    transpile: ["gsap"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

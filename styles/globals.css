@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100vh;
+}
+
+article {
+    margin: 40px 200px;
+}
+
+
+html {
+    overflow-y: scroll;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+body {
+    overflow-y: visible;
+    position: relative;
+    height: unset;
+}
+
+#container {
+    position: relative;
+    margin: auto;
+}
