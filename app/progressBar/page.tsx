@@ -21,6 +21,6 @@ const ProgressBar = () => {
       </Wrapper>
     </>
   );
-};headless ui
+};
 
 export default ProgressBar;
