@@ -14,7 +14,7 @@ import { InnerWrapper, Wrapper } from "./style";
 import { Grid } from "@mui/material";
 import DraggableHomeButton from "@/components/DraggableHomeButton/DraggableHomeButton";
 
-export const Chain = () => {
+const Chain = () => {
   const [open, set] = useState(false);
   const springApi = useSpringRef();
   const { size, ...rest } = useSpring({

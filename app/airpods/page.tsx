@@ -1,66 +1,59 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { Wrapper } from "./style";
-import DraggableHomeButton from "@/components/DraggableHomeButton/DraggableHomeButton";
+import React, {useEffect} from "react";
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import './style.css'
 
-export const AirPods = () => {
-  let html = document.documentElement;
+gsap.registerPlugin(ScrollTrigger);
+const AirPods = () => {
 
-  useEffect(() => {
-    const canvas = document.getElementsByTagName("canvas")[0];
-    if (canvas === null) return; // current may be null
-    const context = canvas.getContext("2d");
-    if (context == null) return; // context may be null
-    //Our first draw
-    const img = new Image();
-    img.src = currentFrame(1);
-    canvas.width = 1158;
-    canvas.height = 770;
-    img.onload = function () {
-      context.drawImage(img, 0, 0);
-    };
+    useEffect(() => {
+        const canvas = document.getElementsByTagName('canvas')[0];
+        const context = canvas.getContext("2d");
 
-    const updateImage = (index: number) => {
-      img.src = currentFrame(index);
-      context.drawImage(img, 0, 0);
-    };
+        canvas.width = 1158;
+        canvas.height = 770;
 
-    window.addEventListener("scroll", () => {
-      const scrollTop = html.scrollTop;
-      const maxScrollTop = html.scrollHeight - window.innerHeight;
-      const scrollFraction = scrollTop / maxScrollTop;
-      const frameIndex = Math.min(
-        frameCount - 1,
-        Math.ceil(scrollFraction * frameCount)
-      );
-      console.log(frameIndex);
-      requestAnimationFrame(() => updateImage(frameIndex + 1));
-    });
-  }, []);
+        const frameCount = 147;
+        const currentFrame = (index: any) => (
+            `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${(index + 1).toString().padStart(4, '0')}.jpg`
+        );
 
-  const frameCount = 147;
-  const currentFrame = (index: number) =>
-    `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index
-      .toString()
-      .padStart(4, "0")}.jpg`;
+        const images: any = []
+        const airpods = {
+            frame: 0
+        };
 
-  const preloadImages = () => {
-    for (let i = 1; i < frameCount; i++) {
-      const img = new Image();
-      img.src = currentFrame(i);
-    }
-  };
+        for (let i = 0; i < frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            images.push(img);
+        }
 
-  preloadImages();
-  return (
-    <>
-      <DraggableHomeButton />
-      <Wrapper container>
-        <canvas id="hero-lightpass" />
-      </Wrapper>
-    </>
-  );
+        gsap.to(airpods, {
+            frame: frameCount - 1,
+            snap: "frame",
+            ease: "none",
+            scrollTrigger: {
+                scrub: 0.5
+            },
+            onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+        });
+
+        images[0].onload = render;
+
+        function render() {
+            // @ts-ignore
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            // @ts-ignore
+            context.drawImage(images[airpods.frame], 0, 0);
+        }
+    }, []);
+
+    return (
+        <canvas id="hero-lightpass"></canvas>
+    );
 };
 
 export default AirPods;
