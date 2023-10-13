@@ -121,7 +121,6 @@ const Gsap = () => {
     return (
         <div id="smooth-wrapper">
             <DraggableHomeButton/>
-            
             <div className="smooth-content">
                 <div className="largeContainer font-bold text-4xl">Scroll ;)</div>
                 <div className="box">
