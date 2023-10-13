@@ -3,20 +3,17 @@
 import {NextPage} from "next";
 import {Button} from "@/components/Button";
 import {data} from "@/app/data";
-import {ButtonContainer, Container, Text, Wrapper} from "@/styles/styles";
-import Cursor from "@/components/Cursor/Cursor";
+import {ButtonContainer, Container, Wrapper} from "@/styles/styles";
 import React from "react";
-import useMousePosition from "@/utils/helper";
+import Cursor from "@/components/Cursor/Cursor";
 
 const Home: NextPage = () => {
-    const mousePosition = useMousePosition();
-
     return (
         <Container container id="animation">
             <Cursor/>
             <Wrapper container justifyContent="center">
-                <h1>Demo verschiedener Animationen und Scroll Effekte</h1>
-                <Text>Your cursor position: {JSON.stringify(mousePosition)}</Text>
+                <h1 className='font-bold text-4xl mt-8 text-gray-800'>Demo verschiedener Animationen und Scroll
+                    Effekte</h1>
                 <ButtonContainer container justifyContent="center">
                     {data.map((item) => (
                         <Button link={item.link} text={item.text} key={item.text}/>

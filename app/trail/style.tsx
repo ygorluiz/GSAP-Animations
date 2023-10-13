@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import {Grid} from '@mui/material';
 
 export const Wrapper = styled(Grid)`
-  margin: 100px 0;
+  height: 100vh;
+  max-width: unset;
+
   .trailsText {
     position: relative;
     width: 100%;
@@ -20,12 +22,4 @@ export const Wrapper = styled(Grid)`
     padding-right: 0.05em;
     overflow: hidden;
   }
-
-  .container {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    justify-content: center;
-  }
-
 `;

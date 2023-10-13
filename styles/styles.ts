@@ -6,11 +6,6 @@ export const Body = styled.body`
   margin: 0;
 `;
 
-export const Title = styled.h1`
-  width: 100%;
-  text-align: center;
-  margin-bottom: 100px;
-`;
 export const Container = styled(Grid)`
   height: 100vh;
 `;

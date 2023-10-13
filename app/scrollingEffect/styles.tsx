@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Grid } from "@mui/material";
+import {Grid} from "@mui/material";
 
-export const DemoWrapper = styled(Grid)``;
 export const Header = styled(Grid)`
   display: flex;
   align-items: center;
