@@ -12,6 +12,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "11.10.6",
     "@gsap/shockingly": "^3.12.2",
+    "@material-tailwind/react": "^2.1.4",
     "@mui/icons-material": "5.11.16",
     "@mui/material": "5.11.14",
     "@mui/styles": "5.13.2",

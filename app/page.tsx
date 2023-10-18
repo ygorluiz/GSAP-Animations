@@ -7,6 +7,10 @@ import React from 'react'
 import Cursor from '@/components/Cursor/Cursor'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
+import {
+	Card,
+	CardBody,
+} from "@material-tailwind/react";
 
 const Home: NextPage = () => {
 	return (
@@ -15,8 +19,9 @@ const Home: NextPage = () => {
 			<h1 className="mb-8 mt-8 w-full text-center text-4xl font-bold text-gray-800">
 				Demo verschiedener Animationen und Scroll Effekte
 			</h1>
-			<CustomCard>
-				<CardContent>
+			<div className="flex justify-center gap-5">
+			<Card className="w-80 bg-white p-5 rounded-xl shadow-lg">
+				<CardBody>
 					<Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
 						Framer Motion
 					</Typography>
@@ -28,10 +33,10 @@ const Home: NextPage = () => {
 							</a>
 						))}
 					</Content>
-				</CardContent>
-			</CustomCard>
-			<CustomCard>
-				<CardContent>
+				</CardBody>
+			</Card>
+			<Card  className="w-80 bg-white p-3 rounded-xl shadow-lg">
+				<CardBody>
 					<Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
 						React Spring
 					</Typography>
@@ -43,10 +48,10 @@ const Home: NextPage = () => {
 							</a>
 						))}
 					</Content>
-				</CardContent>
-			</CustomCard>
-			<CustomCard>
-				<CardContent>
+				</CardBody>
+			</Card>
+			<Card className="w-80 bg-white p-3 rounded-xl shadow-lg">
+				<CardBody>
 					<Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
 						GSAP
 					</Typography>
@@ -58,8 +63,9 @@ const Home: NextPage = () => {
 							</a>
 						))}
 					</Content>
-				</CardContent>
-			</CustomCard>
+				</CardBody>
+			</Card>
+			</div>
 		</Container>
 	)
 }
