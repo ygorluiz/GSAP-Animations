@@ -2,67 +2,68 @@
 
 import { NextPage } from 'next'
 import { framerData, gsapData, springData } from '@/app/data'
-import { Container, Content, CustomCard } from '@/styles/styles'
+import { Container, Content } from '@/styles/styles'
 import React from 'react'
 import Cursor from '@/components/Cursor/Cursor'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
+import Card from "@mui/material/Card";
 
 const Home: NextPage = () => {
 	return (
-		<Container container id="animation" justifyContent="center">
+		<div id="animation" className="flex justify-center flex-col">
 			<Cursor />
 			<h1 className="mb-8 mt-8 w-full text-center text-4xl font-bold text-gray-800">
 				Demo verschiedener Animationen und Scroll Effekte
 			</h1>
 			<div className="flex justify-center gap-5">
-			<CustomCard className="w-80 bg-white p-5 rounded-xl shadow-lg">
+			<Card className="w-80 bg-white rounded-xl shadow-lg">
 				<CardContent>
-					<Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
+					<h2 className="text-lg font-bold text-gray-700">
 						Framer Motion
-					</Typography>
+					</h2>
 					<hr />
-					<Content container flexDirection="column">
+					<div className="flex flex-col">
 						{framerData.map((item, index) => (
 							<a href={item.link} key={item.text} className="m-2 text-indigo-600">
 								{index + 1}. {item.text}
 							</a>
 						))}
-					</Content>
+					</div>
 				</CardContent>
-			</CustomCard>
-			<CustomCard  className="w-80 bg-white p-3 rounded-xl shadow-lg">
+			</Card>
+			<Card  className="w-80 bg-white rounded-xl shadow-lg">
 				<CardContent>
-					<Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
+					<h2 className="text-lg font-bold text-gray-700">
 						React Spring
-					</Typography>
+					</h2>
 					<hr />
-					<Content container flexDirection="column">
+					<div className="flex flex-col">
 						{springData.map((item, index) => (
 							<a href={item.link} key={item.text} className="m-2 text-indigo-600">
 								{index + 1}. {item.text}
 							</a>
 						))}
-					</Content>
+					</div>
 				</CardContent>
-			</CustomCard>
-			<CustomCard className="w-80 bg-white p-3 rounded-xl shadow-lg">
+			</Card>
+			<Card className="w-80 bg-white rounded-xl shadow-lg">
 				<CardContent>
-					<Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
+					<h2 className="text-lg font-bold text-gray-700 m-0">
 						GSAP
-					</Typography>
+					</h2>
 					<hr />
-					<Content container flexDirection="column">
+					<div className="flex flex-col">
 						{gsapData.map((item, index) => (
 							<a href={item.link} key={item.text} className="m-2 text-indigo-600">
 								{index + 1}. {item.text}
 							</a>
 						))}
-					</Content>
+					</div>
 				</CardContent>
-			</CustomCard>
+			</Card>
 			</div>
-		</Container>
+		</div>
 	)
 }
 
