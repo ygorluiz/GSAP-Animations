@@ -11,11 +11,7 @@ const Layout = ({children}: LayoutProps) => {
     return (
         <html lang="en" style={{minWidth: "320px"}}>
         <Head/>
-        <body>
-            {/*   <script
-          async
-          src="https: //cdnjs.cloudflare.com/ajax/libs/gsap/3.0.0/gsap.min.js"
-        ></script>*/}
+        <body className='bg-gray-100 m-0'>
             <StyledComponentsRegistry>
                 <Providers>{children}</Providers>
             </StyledComponentsRegistry>

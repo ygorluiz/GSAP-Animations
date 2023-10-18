@@ -23,9 +23,9 @@ const Home: NextPage = () => {
 					<hr />
 					<Content container flexDirection="column">
 						{framerData.map((item, index) => (
-							<Link href={item.link} key={item.text}>
+							<a href={item.link} key={item.text} className="m-2 text-indigo-600">
 								{index + 1}. {item.text}
-							</Link>
+							</a>
 						))}
 					</Content>
 				</CardContent>
@@ -38,9 +38,9 @@ const Home: NextPage = () => {
 					<hr />
 					<Content container flexDirection="column">
 						{springData.map((item, index) => (
-							<Link href={item.link} key={item.text}>
+							<a href={item.link} key={item.text} className="m-2 text-indigo-600">
 								{index + 1}. {item.text}
-							</Link>
+							</a>
 						))}
 					</Content>
 				</CardContent>
@@ -53,9 +53,9 @@ const Home: NextPage = () => {
 					<hr />
 					<Content container flexDirection="column">
 						{gsapData.map((item, index) => (
-							<Link href={item.link} key={item.text}>
+							<a href={item.link} key={item.text} className="m-2 text-indigo-600">
 								{index + 1}. {item.text}
-							</Link>
+							</a>
 						))}
 					</Content>
 				</CardContent>
